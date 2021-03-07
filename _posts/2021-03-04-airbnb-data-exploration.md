@@ -35,9 +35,18 @@ import seaborn as sns
 import myutils as myu
 import re
 %matplotlib inline
-listing_df = pd.read_csv('../data/seattle_listings.csv.gz') 
+listing_df = pd.read_csv('../data/seattle_listings.csv.gz')
 ```
 
 We remove all the columns that have the same constant value for the entire dataset and
 are completely missing and contain URLs since we are not going to do any type of text
 analytics on this project.
+
+```python
+remove_list = listing_df.columns[(listing_df.nunique()<=1)
+                                 | (listing_df.columns.str.contains('url'))
+                                 | (listing_df.isnull().mean()==1)
+                                ].tolist()
+
+remove_list
+```

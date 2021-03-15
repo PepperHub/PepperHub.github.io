@@ -215,13 +215,13 @@ What are the most common property and room types that are listed? How are the pr
 <img src="/assets/img/airbnb_data_exploration/property_type_bar_chart.png" width="700px" />
 
 
-On average, by looking at the prices of property types, boats seem to be the most expensive option and the private room in a guest suite is the cheapest option on these listings. The variation also seems to be the highest in house prices as compared to the other property types. However, The most popular listing property types are apartments and houses in Seattle.
+By looking at the prices of property types, on average, staying in boats seem to be the most expensive option and the private room in a guest suite is the cheapest option on these listings. The variation in house prices is higher than other property types. In terms of the popularity though, the most popular listing property types are apartments and houses in Seattle.
 
 ## Conclusion
 
-In this article, we had a look at which characteristics affect the price listings set by the hosts and the estimated revenue they make in Seattle. Equally, many other questions could be explored around the features of the listings such as amenities, area, etc. Here we focused on data cleaning and exploratory analysis, which are the essential steps before building any model.
+In this article, we had a look at which characteristics affect the price listings set and the estimated revenue made by the hosts in Seattle. Equally, many other questions could be explored around the features of the listings such as amenities, area, etc. Here we focused on data cleaning and exploratory analysis only to answer set of questions.
 
-Our key takeaways of the questions we explored were:
+Our key takeaways from the questions we explored were:
 
 - Higher the number of people a listing can accommodate, the more likely it that the host will make higher estimated revenue.
 - Surprisingly, ratings and the number of reviews do not have much impact on the estimated revenue. However, it is still nice to give a review for future hosts to get a better feel of the listing.

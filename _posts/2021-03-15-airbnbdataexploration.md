@@ -4,7 +4,7 @@ title: Airbnb Seattle Data Exploration
 subtitle: Exploring the listings in Seattle
 cover-img: /assets/img/airbnb-data-exploration/SeattleCity2_pic.jpg
 thumbnail-img: /assets/img/airbnb-data-exploration/seattle_thumb_pic.jpg
-share-img: /assets/img/airbnb-data-exploration/path.jpg
+share-img: /assets/img/airbnb-data-exploration/SeattleCity2_pic.jpg
 tags: [Airbnb, Seattle]
 ---
 
@@ -70,7 +70,6 @@ listing_df["days_since_first_review"] =  (listing_df['last_scraped'] - listing_d
 listing_df[["days_since_host","days_since_last_review", "days_since_first_review"]].head()
 ```
 <br/>
-
  | days_since_host | days_since_last_review number | days_since_first_review number |
  | :------ |:--- | :--- |
  | 4443 | 267 | 4423 |
@@ -108,7 +107,6 @@ listing_df.bathrooms_text.unique()
 ##        'Private half-bath'], dtype=object)
 ```
 <br/>
-
 ```python
 listing_df['private_bath_yn'] = np.where(listing_df.bathrooms_text.str.contains('private'), 1, 0)
 listing_df['n_bathrooms'] = listing_df.bathrooms_text.str.replace(r'(^.*-bath.*$)', '0.5', regex=True)
@@ -121,7 +119,6 @@ Below is an example of the converted variables that will be used in our explanat
 listing_df[['private_bath_yn', 'bathrooms_text', 'n_bathrooms']].head(5)
 ```
 <br/>
-
 | private_bath_yn | bathrooms_text number | n_bathrooms number |
 | :---------- | :---------- | :---------- |
 | 0 |	2.5 baths |	2.5 |
@@ -158,7 +155,6 @@ host total listings count and host listing count variables are correlated with c
  .sort_values('estimated_revenue', ascending=False).head())
  ```
 <br/>
-
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
 | 10 | 70.0 | 100 | 5 | 90000.0 |
@@ -174,7 +170,6 @@ host total listings count and host listing count variables are correlated with c
  .sort_values('estimated_revenue', ascending=False).head())
 ```
 <br/>
-
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
 | 20	| 99.0	| 29 | 	12 | 	17081.0	|
@@ -184,14 +179,12 @@ host total listings count and host listing count variables are correlated with c
 | 287 | 100.0 | 28 | 6 | 6160.0 |
 
 <br/>
-
 ```python
 (listing_df[['minimum_nights','number_of_reviews','estimated_revenue','review_scores_rating']]
  .query("number_of_reviews > 0")
  .corr())
 ```
-
-
+<br/>
 | minimum_nights	| number_of_reviews |	estimated_revenue|	review_scores_rating |
 | :--------- |:--------- |:--------- |:--------- |
 | minimum_nights	| 1.000000 | -0.187925 | 0.641146 |	-0.080721 |

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Airbnb Seattle Data Exploration
-subtitle: Exploratory data analysis to derive the most relevant characteristics that
-are correlated to the price of the listings in Seattle
+subtitle: Exploring the listings in Seattle
 cover-img: /assets/img/2021-03-15-airbnb-data-exploration/SeattleCity2_pic.jpg
 thumbnail-img: /assets/img/2021-03-15-airbnb-data-exploration/seattle_thumb_pic.jpg
 share-img: /assets/img/2021-03-15-airbnb-data-exploration/path.jpg

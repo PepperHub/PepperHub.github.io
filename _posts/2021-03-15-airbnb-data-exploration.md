@@ -3,7 +3,6 @@ layout: post
 title: Airbnb Seattle Data Exploration
 subtitle: Exploratory data analysis to derive the most relevant characteristics that
 are correlated to the price of the listings in Seattle
-date: 2021-03-07
 cover-img: assets/img/airbnb_data_exploration/SeattleCity2_pic.jpg
 thumbnail-img: assets/img/airbnb_data_exploration/seattle_thumb_pic.jpg
 share-img: assets/img/airbnb_data_exploration/path.jpg
@@ -155,9 +154,7 @@ You can find the details about how we cleaned and reformated all the other varia
 
 - Which features are highly correlated with each other and/or with the price?
 
-![heatmap](/assets/img/airbnb_data_exploration/heatmap.jpg)
-
-<img src="/assets/img/airbnb_data_exploration/heatmap.png" width="700px" />
+<img src="/assets/img/airbnb_data_exploration/heatmap.png" width="900px" />
 
 The number of people that the property can accommodate, the number of bedrooms, and the number of beds are highly correlated with each other. Although they are also highly correlated with the price (our target variable), to reduce the multicollinearity, we will remove beds and bedrooms from the dataset. The number of people who can be accommodated would be more relevant to the guests than the other features.
 host total listings count and host listing count variables are correlated with calculated host listings count. We will keep the calculated host listings count. variable and drop the others.
@@ -227,9 +224,9 @@ Revenue is correlated with the number of nights the listing is advertised. Howev
 
 What are the most common property and room types that are listed? How are the prices distributed amongst them?
 
-![violin1](/assets/img/airbnb_data_exploration/property_type_violin_plt.jpg)
+<img src="/assets/img/airbnb_data_exploration/property_type_violin_plt.jpg" width="700px" />
 
-![bar_chart](/assets/img/airbnb_data_exploration/property_type_bar_chart.jpg)
+<img src="/assets/img/airbnb_data_exploration/property_type_bar_chart.jpg" width="700px" />
 
 
 On average, by looking at the prices of property types, boats seem to be the most expensive option and the private room in a guest suite is the cheapest option on these listings. The variation also seems to be the highest in house prices as compared to the other property types. However, The most popular listing property types are apartments and houses in Seattle.

@@ -135,7 +135,7 @@ listing_df[['private_bath_yn', 'bathrooms_text', 'n_bathrooms']].head(5)
 <br/>
 
 | private_bath_yn | bathrooms_text number | n_bathrooms number |
-| :---------- :---------- | :---------- |
+| :---------- | :---------- | :---------- |
 | 0 |	2.5 baths |	2.5 |
 | 0	| 3 shared baths | 3 |
 | 0 | 1 bath | 1 |

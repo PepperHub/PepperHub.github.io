@@ -50,8 +50,6 @@ remove_list
 
 <br/>
 
-<br/>
-
 ```python
 ## ['listing_url',
 ##  'scrape_id',
@@ -74,8 +72,6 @@ listing_df["days_since_last_review"] =  (listing_df['last_scraped'] - listing_df
 listing_df["days_since_first_review"] =  (listing_df['last_scraped'] - listing_df['first_review']).dt.da
 listing_df[["days_since_host","days_since_last_review", "days_since_first_review"]].head()
 ```
-
-<br/>
 
 <br/>
 
@@ -117,7 +113,6 @@ listing_df.bathrooms_text.unique()
 ```
 
 <br/>
-<br/>
 
 ```python
 listing_df['private_bath_yn'] = np.where(listing_df.bathrooms_text.str.contains('private'), 1, 0)
@@ -131,7 +126,6 @@ Below is an example of the converted variables that will be used in our explanat
 listing_df[['private_bath_yn', 'bathrooms_text', 'n_bathrooms']].head(5)
 ```
 
-<br/>
 <br/>
 
 | private_bath_yn | bathrooms_text number | n_bathrooms number |
@@ -171,7 +165,6 @@ host total listings count and host listing count variables are correlated with c
  ```
 
 <br/>
-<br/>
 
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
@@ -188,7 +181,6 @@ host total listings count and host listing count variables are correlated with c
  .sort_values('estimated_revenue', ascending=False).head())
 ```
 <br/>
-<br/>
 
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
@@ -199,14 +191,12 @@ host total listings count and host listing count variables are correlated with c
 | 287 | 100.0 | 28 | 6 | 6160.0 |
 
 <br/>
-<br/>
 
 ```python
 (listing_df[['minimum_nights','number_of_reviews','estimated_revenue','review_scores_rating']]
  .query("number_of_reviews > 0")
  .corr())
 ```
-<br/>
 <br/>
 
 | minimum_nights	| number_of_reviews |	estimated_revenue|	review_scores_rating |
@@ -224,9 +214,11 @@ Revenue is correlated with the number of nights the listing is advertised. Howev
 
 What are the most common property and room types that are listed? How are the prices distributed amongst them?
 
-<img src="/assets/img/airbnb_data_exploration/property_type_violin_plt.jpg" width="700px" />
+<img src="/assets/img/airbnb_data_exploration/property_type_violin_plt.png" width="700px" />
 
-<img src="/assets/img/airbnb_data_exploration/property_type_bar_chart.jpg" width="700px" />
+<br/>
+
+<img src="/assets/img/airbnb_data_exploration/property_type_bar_chart.png" width="700px" />
 
 
 On average, by looking at the prices of property types, boats seem to be the most expensive option and the private room in a guest suite is the cheapest option on these listings. The variation also seems to be the highest in house prices as compared to the other property types. However, The most popular listing property types are apartments and houses in Seattle.

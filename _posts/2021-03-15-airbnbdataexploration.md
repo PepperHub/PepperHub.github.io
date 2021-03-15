@@ -2,9 +2,9 @@
 layout: post
 title: Airbnb Seattle Data Exploration
 subtitle: Exploring the listings in Seattle
-cover-img: /assets/img/2021-03-15-airbnb-data-exploration/SeattleCity2_pic.jpg
-thumbnail-img: /assets/img/2021-03-15-airbnb-data-exploration/seattle_thumb_pic.jpg
-share-img: /assets/img/2021-03-15-airbnb-data-exploration/path.jpg
+cover-img: /assets/img/airbnb-data-exploration/SeattleCity2_pic.jpg
+thumbnail-img: /assets/img/airbnb-data-exploration/seattle_thumb_pic.jpg
+share-img: /assets/img/airbnb-data-exploration/path.jpg
 tags: [Airbnb, Seattle]
 ---
 

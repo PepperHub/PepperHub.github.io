@@ -48,8 +48,6 @@ remove_list = listing_df.columns[(listing_df.nunique()<=1)
 remove_list
 ```
 
-<br/>
-
 ```python
 ## ['listing_url',
 ##  'scrape_id',
@@ -72,7 +70,6 @@ listing_df["days_since_last_review"] =  (listing_df['last_scraped'] - listing_df
 listing_df["days_since_first_review"] =  (listing_df['last_scraped'] - listing_df['first_review']).dt.da
 listing_df[["days_since_host","days_since_last_review", "days_since_first_review"]].head()
 ```
-
 <br/>
 
  | days_since_host | days_since_last_review number | days_since_first_review number |
@@ -111,7 +108,6 @@ listing_df.bathrooms_text.unique()
 ##        '0 shared baths', '6 baths', 'Shared half-bath',
 ##        'Private half-bath'], dtype=object)
 ```
-
 <br/>
 
 ```python
@@ -125,7 +121,6 @@ Below is an example of the converted variables that will be used in our explanat
 ```python
 listing_df[['private_bath_yn', 'bathrooms_text', 'n_bathrooms']].head(5)
 ```
-
 <br/>
 
 | private_bath_yn | bathrooms_text number | n_bathrooms number |
@@ -163,7 +158,6 @@ host total listings count and host listing count variables are correlated with c
  .query("number_of_reviews > 0")
  .sort_values('estimated_revenue', ascending=False).head())
  ```
-
 <br/>
 
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
@@ -197,7 +191,7 @@ host total listings count and host listing count variables are correlated with c
  .query("number_of_reviews > 0")
  .corr())
 ```
-<br/>
+
 
 | minimum_nights	| number_of_reviews |	estimated_revenue|	review_scores_rating |
 | :--------- |:--------- |:--------- |:--------- |

@@ -4,11 +4,10 @@ title: Airbnb Seattle Data Exploration
 subtitle: Exploratory data analysis to derive the most relevant characteristics that
 are correlated to the price of the listings in Seattle
 date: 2021-03-07
-cover-img: /assets/img/SeattleCity2_pic.jpg
-thumbnail-img: /assets/img/seattle_thumb_pic.jpg
-share-img: /assets/img/path.jpg
+cover-img: assets/img/airbnb_data_exploration/SeattleCity2_pic.jpg
+thumbnail-img: assets/img/airbnb_data_exploration/seattle_thumb_pic.jpg
+share-img: assets/img/airbnb_data_exploration/path.jpg
 tags: [Airbnb, Seattle]
-htmlwidget: true
 ---
 
 ## Introduction
@@ -50,6 +49,10 @@ remove_list = listing_df.columns[(listing_df.nunique()<=1)
 remove_list
 ```
 
+<br/>
+
+<br/>
+
 ```python
 ## ['listing_url',
 ##  'scrape_id',
@@ -72,6 +75,10 @@ listing_df["days_since_last_review"] =  (listing_df['last_scraped'] - listing_df
 listing_df["days_since_first_review"] =  (listing_df['last_scraped'] - listing_df['first_review']).dt.da
 listing_df[["days_since_host","days_since_last_review", "days_since_first_review"]].head()
 ```
+
+<br/>
+
+<br/>
 
  | days_since_host | days_since_last_review number | days_since_first_review number |
  | :------ |:--- | :--- |
@@ -110,6 +117,9 @@ listing_df.bathrooms_text.unique()
 ##        'Private half-bath'], dtype=object)
 ```
 
+<br/>
+<br/>
+
 ```python
 listing_df['private_bath_yn'] = np.where(listing_df.bathrooms_text.str.contains('private'), 1, 0)
 listing_df['n_bathrooms'] = listing_df.bathrooms_text.str.replace(r'(^.*-bath.*$)', '0.5', regex=True)
@@ -121,8 +131,12 @@ Below is an example of the converted variables that will be used in our explanat
 ```python
 listing_df[['private_bath_yn', 'bathrooms_text', 'n_bathrooms']].head(5)
 ```
+
+<br/>
+<br/>
+
 | private_bath_yn | bathrooms_text number | n_bathrooms number |
-| :------ |:--- | :--- |
+| :---------- :---------- | :---------- |
 | 0 |	2.5 baths |	2.5 |
 | 0	| 3 shared baths | 3 |
 | 0 | 1 bath | 1 |
@@ -141,7 +155,9 @@ You can find the details about how we cleaned and reformated all the other varia
 
 - Which features are highly correlated with each other and/or with the price?
 
-![heatmap](/assets/img/heatmap.jpg)
+![heatmap](/assets/img/airbnb_data_exploration/heatmap.jpg)
+
+<img src="/assets/img/airbnb_data_exploration/heatmap.png" width="700px" />
 
 The number of people that the property can accommodate, the number of bedrooms, and the number of beds are highly correlated with each other. Although they are also highly correlated with the price (our target variable), to reduce the multicollinearity, we will remove beds and bedrooms from the dataset. The number of people who can be accommodated would be more relevant to the guests than the other features.
 host total listings count and host listing count variables are correlated with calculated host listings count. We will keep the calculated host listings count. variable and drop the others.
@@ -157,6 +173,9 @@ host total listings count and host listing count variables are correlated with c
  .sort_values('estimated_revenue', ascending=False).head())
  ```
 
+<br/>
+<br/>
+
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
 | 10 | 70.0 | 100 | 5 | 90000.0 |
@@ -171,6 +190,8 @@ host total listings count and host listing count variables are correlated with c
  .query("number_of_reviews > 0 and minimum_nights <30")
  .sort_values('estimated_revenue', ascending=False).head())
 ```
+<br/>
+<br/>
 
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
@@ -180,13 +201,19 @@ host total listings count and host listing count variables are correlated with c
 | 3	| 100.0 |	10 | 8 |	6500.0 |
 | 287 | 100.0 | 28 | 6 | 6160.0 |
 
+<br/>
+<br/>
+
 ```python
 (listing_df[['minimum_nights','number_of_reviews','estimated_revenue','review_scores_rating']]
  .query("number_of_reviews > 0")
  .corr())
 ```
+<br/>
+<br/>
 
 | minimum_nights	| number_of_reviews |	estimated_revenue|	review_scores_rating |
+| :--------- |:--------- |:--------- |:--------- |
 | minimum_nights	| 1.000000 | -0.187925 | 0.641146 |	-0.080721 |
 | number_of_reviews | -0.187925	| 1.000000 | -0.152691 | 0.159541 |
 | estimated_revenue	| 0.641146 | -0.152691 | 1.000000	| -0.037708 |
@@ -200,9 +227,9 @@ Revenue is correlated with the number of nights the listing is advertised. Howev
 
 What are the most common property and room types that are listed? How are the prices distributed amongst them?
 
-![violin1](/assets/img/property_type_violin_plt.jpg)
+![violin1](/assets/img/airbnb_data_exploration/property_type_violin_plt.jpg)
 
-![bar_chart](/assets/img/property_type_bar_chart.jpg)
+![bar_chart](/assets/img/airbnb_data_exploration/property_type_bar_chart.jpg)
 
 
 On average, by looking at the prices of property types, boats seem to be the most expensive option and the private room in a guest suite is the cheapest option on these listings. The variation also seems to be the highest in house prices as compared to the other property types. However, The most popular listing property types are apartments and houses in Seattle.

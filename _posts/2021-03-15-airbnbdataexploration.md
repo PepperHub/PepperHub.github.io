@@ -70,8 +70,9 @@ listing_df["days_since_first_review"] =  (listing_df['last_scraped'] - listing_d
 listing_df[["days_since_host","days_since_last_review", "days_since_first_review"]].head()
 ```
 <br/>
+
  | days_since_host | days_since_last_review number | days_since_first_review number |
- | :------ |:--- | :--- |
+ | :------ | :--- | :--- |
  | 4443 | 267 | 4423 |
  | 4095 | 303 | 3740 |
  | 4091 | 300 | 3209 |
@@ -156,6 +157,7 @@ host total listings count and host listing count variables are correlated with c
  .sort_values('estimated_revenue', ascending=False).head())
  ```
 <br/>
+
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
 | 10 | 70.0 | 100 | 5 | 90000.0 |
@@ -171,6 +173,7 @@ host total listings count and host listing count variables are correlated with c
  .sort_values('estimated_revenue', ascending=False).head())
 ```
 <br/>
+
 | number_of_reviews	| review_scores_rating |	minimum_nights|	accommodates | estimated_revenue |
 | :------ |:------| :------ | :------ |
 | 20	| 99.0	| 29 | 	12 | 	17081.0	|
@@ -186,6 +189,7 @@ host total listings count and host listing count variables are correlated with c
  .corr())
 ```
 <br/>
+
 | minimum_nights	| number_of_reviews |	estimated_revenue|	review_scores_rating |
 | :--------- |:--------- |:--------- |:--------- |
 | minimum_nights	| 1.000000 | -0.187925 | 0.641146 |	-0.080721 |
